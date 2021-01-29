@@ -70,10 +70,10 @@
       "imports": [],
       "inputs": {
         "index.css": {
-          "bytesInOutput": 36
+          "bytesInOutput": 28
         }
       },
-      "bytes": 52
+      "bytes": 29
     },
     "../~~bundle~~/dist/index.js": {
       "imports": [],
@@ -82,13 +82,13 @@
       ],
       "inputs": {
         "_snowpack/env.js": {
-          "bytesInOutput": 186
+          "bytesInOutput": 98
         },
         "dist/App.svelte.css": {
           "bytesInOutput": 0
         },
         "_snowpack/pkg/common/index-4f6f3a34.js": {
-          "bytesInOutput": 6378
+          "bytesInOutput": 2943
         },
         "_snowpack/pkg/svelte/internal.js": {
           "bytesInOutput": 0
@@ -97,22 +97,22 @@
           "bytesInOutput": 0
         },
         "dist/App.svelte.js": {
-          "bytesInOutput": 5382
+          "bytesInOutput": 2022
         },
         "dist/index.js": {
-          "bytesInOutput": 208
+          "bytesInOutput": 63
         }
       },
-      "bytes": 12569
+      "bytes": 5288
     },
     "../~~bundle~~/dist/index.css": {
       "imports": [],
       "inputs": {
         "dist/App.svelte.css": {
-          "bytesInOutput": 1866
+          "bytesInOutput": 1563
         }
       },
-      "bytes": 1892
+      "bytes": 1564
     }
   }
 }
