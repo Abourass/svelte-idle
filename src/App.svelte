@@ -1,6 +1,6 @@
 <script lang='typescript'>
   import { onMount } from 'svelte';
-  import {money} from './playerStore'
+  import {money, proofs} from './playerStore'
   import Building from './components/Building.svelte'
   import usdFormat from './modules/formatter';
 
@@ -104,11 +104,15 @@
   <header class="App-header">
     <p>Page has been open for <code>{secondsGoneBy}</code> seconds.</p>
     <p>You currently have: {usdFormat($money)}</p>
+    {#if $proofs > 0}
+      <p>You currently have: {$proofs} proofs</p>
+    {/if}
 
     <div class="container">
       <button on:click={addMoney} class="btn"> Add money </button>
       <Building name="Crack House"/>
-      <Building name="Taco Truck"/>
+      <Building name="Taco Truck" buildingProduction="2" />
+      <Building name="Mortuary" currencyProduced={proofs} formatProduction="{(input) => `${input} proofs`}" />
     </div>
 
   </header>

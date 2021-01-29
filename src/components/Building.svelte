@@ -3,27 +3,31 @@
   import {money} from '../playerStore'
   import usdFormat from '../modules/formatter';
 
+  // Props
+  export let name: string;
+  export let currencyProduced = money;
+  export let currencyRequired = money;
+  export let tickSpeed: number = 1000;
+  export let buildingProduction: number = 1;
+  export let formatProduction = usdFormat;
+
   // Variables
-  export let name;
-  let tickSpeed: number = 1000;
   let numberOfBuildings: number = 0;
-  let buildingProduction: number = 1;
 
   // Reactive Declarations
   $: cost = (numberOfBuildings + 1) * 5;
-  $: cantBuy = cost > $money;
+  $: cantBuy = cost > $currencyRequired;
   $: productionPerTick = numberOfBuildings * buildingProduction;
 
   // Game Fn
   const buyBuilding = (): void => {
-    if ($money >= cost){
-      money.update(val => val - cost);
+    if ($currencyRequired >= cost){
+      currencyRequired.update(val => val - cost);
       numberOfBuildings++;
     }
   }
-
   const generateIncome = (): void => {
-    money.update(val => val + productionPerTick);
+    currencyProduced.update(val => val + productionPerTick);
     setTimeout(generateIncome, tickSpeed);
   }
 
@@ -104,7 +108,8 @@
 <div class="btn-wrapper">
   <button on:click={buyBuilding} disabled={cantBuy} class="{cantBuy ? 'btn cantBuy' : 'btn'}">Buy {name}</button>
   <div class="button-flag">
+    <h3>{name}</h3>
     <p>{numberOfBuildings} {(numberOfBuildings > 1) ? 'buildings' : 'building'} bought, next one cost {usdFormat(cost)}</p>
-    <p>You are currently generating {usdFormat(productionPerTick)} per tick</p>
+    <p>You are currently generating {formatProduction ? formatProduction(productionPerTick) : productionPerTick} per tick</p>
   </div>
 </div>
