@@ -42,11 +42,6 @@
 </script>
 
 <style>
-  :global(body) {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f2f2f2;
-  }
   .App {
     text-align: center;
   }

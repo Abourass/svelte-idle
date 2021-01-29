@@ -9,7 +9,7 @@
       "imports": []
     },
     "dist/App.svelte.css": {
-      "bytes": 1591,
+      "bytes": 1542,
       "imports": []
     },
     "_snowpack/pkg/common/index-4f6f3a34.js": {
@@ -35,7 +35,7 @@
       ]
     },
     "dist/App.svelte.js": {
-      "bytes": 5782,
+      "bytes": 5793,
       "imports": [
         {
           "path": "dist/App.svelte.css",
@@ -97,22 +97,22 @@
           "bytesInOutput": 0
         },
         "dist/App.svelte.js": {
-          "bytesInOutput": 2022
+          "bytesInOutput": 2033
         },
         "dist/index.js": {
           "bytesInOutput": 63
         }
       },
-      "bytes": 5288
+      "bytes": 5299
     },
     "../~~bundle~~/dist/index.css": {
       "imports": [],
       "inputs": {
         "dist/App.svelte.css": {
-          "bytesInOutput": 1563
+          "bytesInOutput": 1516
         }
       },
-      "bytes": 1564
+      "bytes": 1517
     }
   }
 }
