@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="69b16ec5-7390-4c5d-b57f-317b92dcc7a5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snowpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/snowpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,12 +101,24 @@
       <option name="presentableId" value="Default" />
       <updated>1611939282622</updated>
       <workItem from="1611939283959" duration="4474000" />
-      <workItem from="1611952726029" duration="5313000" />
+      <workItem from="1611952726029" duration="5654000" />
     </task>
+    <task id="LOCAL-00001" summary=":sparkles: Trying to make github pages work">
+      <created>1611958448624</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1611958448624</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value=":sparkles: Trying to make github pages work" />
+    <option name="LAST_COMMIT_MESSAGE" value=":sparkles: Trying to make github pages work" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
