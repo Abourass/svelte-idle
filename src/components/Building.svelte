@@ -1,29 +1,31 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import {money} from '../playerStore'
+  import {money} from '../stores/playerStore'
   import usdFormat from '../modules/formatter';
 
   // Props
   export let name: string;
+  export let buildings;
+  export let costMultiplier: number = 5
+  export let costPerBuildingSum: number = 1;
   export let currencyProduced = money;
   export let currencyRequired = money;
   export let tickSpeed: number = 1000;
   export let buildingProduction: number = 1;
   export let formatProduction = usdFormat;
 
-  // Variables
-  let numberOfBuildings: number = 0;
-
   // Reactive Declarations
-  $: cost = (numberOfBuildings + 1) * 5;
+  $: cost = ($buildings + costPerBuildingSum) * costMultiplier;
   $: cantBuy = cost > $currencyRequired;
-  $: productionPerTick = numberOfBuildings * buildingProduction;
+  $: productionPerTick = $buildings * buildingProduction;
+  $: usd = usdFormat(currencyProduced)
+  $: formattedPerTick = formatProduction(productionPerTick)
 
   // Game Fn
   const buyBuilding = (): void => {
     if ($currencyRequired >= cost){
       currencyRequired.update(val => val - cost);
-      numberOfBuildings++;
+      buildings.update(val => val + 1)
     }
   }
   const generateIncome = (): void => {
@@ -109,7 +111,7 @@
   <button on:click={buyBuilding} disabled={cantBuy} class="{cantBuy ? 'btn cantBuy' : 'btn'}">Buy {name}</button>
   <div class="button-flag">
     <h3>{name}</h3>
-    <p>{numberOfBuildings} {(numberOfBuildings > 1) ? 'buildings' : 'building'} bought, next one cost {usdFormat(cost)}</p>
-    <p>You are currently generating {formatProduction(productionPerTick)} per tick</p>
+    <p>{$buildings} {($buildings > 1) ? 'buildings' : 'building'} bought, next one cost {usdFormat(cost)}</p>
+    <p>You are currently generating {formattedPerTick} per tick</p>
   </div>
 </div>
