@@ -110,6 +110,6 @@
   <div class="button-flag">
     <h3>{name}</h3>
     <p>{numberOfBuildings} {(numberOfBuildings > 1) ? 'buildings' : 'building'} bought, next one cost {usdFormat(cost)}</p>
-    <p>You are currently generating {formatProduction ? formatProduction(productionPerTick) : productionPerTick} per tick</p>
+    <p>You are currently generating {formatProduction(productionPerTick)} per tick</p>
   </div>
 </div>

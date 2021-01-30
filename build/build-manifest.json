@@ -57,11 +57,16 @@
       "imports": []
     },
     "dist/modules/formatter.js": {
-      "bytes": 185,
-      "imports": []
+      "bytes": 417,
+      "imports": [
+        {
+          "path": "dist/playerStore.js",
+          "kind": "import-statement"
+        }
+      ]
     },
     "dist/components/Building.svelte.js": {
-      "bytes": 6348,
+      "bytes": 6211,
       "imports": [
         {
           "path": "dist/components/Building.svelte.css",
@@ -86,7 +91,7 @@
       ]
     },
     "dist/App.svelte.js": {
-      "bytes": 5445,
+      "bytes": 5447,
       "imports": [
         {
           "path": "dist/App.svelte.css",
@@ -169,10 +174,10 @@
           "bytesInOutput": 0
         },
         "dist/modules/formatter.js": {
-          "bytesInOutput": 96
+          "bytesInOutput": 100
         },
         "dist/components/Building.svelte.js": {
-          "bytesInOutput": 2019
+          "bytesInOutput": 1995
         },
         "dist/App.svelte.js": {
           "bytesInOutput": 1847
@@ -181,7 +186,7 @@
           "bytesInOutput": 64
         }
       },
-      "bytes": 8036
+      "bytes": 8016
     },
     "../~~bundle~~/dist/index.css": {
       "imports": [],
