@@ -1,7 +1,7 @@
 <script lang='typescript'>
   import { onMount } from 'svelte';
   import {money, corpse} from './stores/playerStore';
-  import {hotDogStands, tacoTrucks, mortuaries, tacoFranchise} from './stores/buildingStore';
+  import {hotDogStands, tacoTrucks, burgerShacks, mortuaries, tacoFranchise} from './stores/buildingStore';
   import Building from './components/Building.svelte'
   import usdFormat, {plural} from './modules/formatter';
 
@@ -52,7 +52,7 @@
   }
   .container {
     width: 550px;
-    height: 200px;
+    height: 130px;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -120,22 +120,33 @@
       />
 
       <Building
-        name="Mortuary"
-        buildings={mortuaries}
-        currencyProduced={corpse}
-        costMultiplier="15"
-        formatProduction="{(amount) => `${amount} ${plural('corpse', amount)}`}"
-      />
-
-      <Building
-        name="Taco Franchise"
-        buildings={tacoFranchise}
-        currencyProduced={tacoTrucks}
-        costMultiplier="18"
-        costPerBuildingSum="5"
-        formatProduction="{(amount) => `${amount} ${plural('taco truck', amount)}`}"
+        name="Burger Shack"
+        buildings={burgerShacks}
+        buildingProduction="4"
+        costMultiplier="20"
       />
     </div>
 
+    {#if $money > 1000}
+      <div class="container">
+        <Building
+          name="Mortuary"
+          buildings={mortuaries}
+          currencyProduced={corpse}
+          costMultiplier="50"
+          tickSpeed="15000"
+          formatProduction="{(amount) => `${amount} ${plural('corpse', amount)}`}"
+        />
+
+        <Building
+          name="Taco Franchise"
+          buildings={tacoFranchise}
+          currencyProduced={tacoTrucks}
+          costMultiplier="100"
+          costPerBuildingSum="5"
+          formatProduction="{(amount) => `${amount} ${plural('taco truck', amount)}`}"
+        />
+      </div>
+    {/if}
   </header>
 </div>
