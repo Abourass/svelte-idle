@@ -1,7 +1,7 @@
 <script lang='typescript'>
   import { onMount } from 'svelte';
   import {money, corpse} from './stores/playerStore';
-  import {crackDens, tacoTrucks, mortuaries, tacoFranchise} from './stores/buildingStore';
+  import {hotDogStands, tacoTrucks, mortuaries, tacoFranchise} from './stores/buildingStore';
   import Building from './components/Building.svelte'
   import usdFormat, {plural} from './modules/formatter';
 
@@ -108,8 +108,8 @@
       <button on:click={addMoney} class="btn"> Add money </button>
 
       <Building
-        name="Crack Den"
-        buildings={crackDens}
+        name="Hot Dog Stand"
+        buildings={hotDogStands}
       />
 
       <Building
