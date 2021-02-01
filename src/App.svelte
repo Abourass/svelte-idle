@@ -20,17 +20,17 @@
 
   // Variables
   let secondsGoneBy: number = 0;
-  let firstRowBonusPerBuilding = 0.25;
-  let secondRowBonusPerBuilding = 1;
+  let firstRowBonusPerBuilding: number = 0.25;
+  let secondRowBonusPerBuilding: number = 1;
 
   // Reactive declarations
-  $: firstRowBuildingsBought = $hotDogBunsBought + $tacoTrucksBought + $burgerShacksBought;
+  $: firstRowBuildingsBought = $hotDogStandsBought + $tacoTrucksBought + $burgerShacksBought;
   $: secondRowBuildingsBought = $mortuariesBought + $tacoFranchiseBought;
   $: firstRowBonus = (firstRowBuildingsBought * firstRowBonusPerBuilding) * $firstRowUpgrades;
   $: secondRowBonus = (secondRowBuildingsBought * secondRowBonusPerBuilding) * $secondRowUpgrades;
 
   // Game Fn
-  const addMoney = () => $money += 1;
+  const addMoney = () => money.update(m => m + 1);
 
   // Time Fn
   onMount(() => {
@@ -140,7 +140,7 @@
         name="Taco Truck"
         buildings={tacoTrucksOwned}
         buildingsBought={tacoTrucksBought}
-        buildingProduction="3"
+        buildingProduces="3"
         costMultiplier="22.5"
         tierBonus={firstRowBonus}
       />
@@ -149,7 +149,7 @@
         name="Burger Shack"
         buildings={burgerShacksOwned}
         buildingsBought={burgerShacksBought}
-        buildingProduction="17"
+        buildingProduces="17"
         costMultiplier="25"
         costPerBuildingSum="2"
         tierBonus={firstRowBonus}
@@ -183,14 +183,14 @@
     <div class="container">
       <Upgrade
         name="Condiment Supplier"
-        numberOfUpgradeBought={firstRowUpgrades}
+        upgradesBought={firstRowUpgrades}
         description="Now you don't need to make the 'Mayo' yourself!"
         initialCost="100"
       />
 
       <Upgrade
         name="Hot Dog Buns"
-        numberOfUpgradeBought={hotDogBunsBought}
+        upgradesBought={hotDogBunsBought}
         description="No more forcing customers to hold the dog in their hands!"
         initialCost="15"
       />

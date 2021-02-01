@@ -6,8 +6,8 @@
 
   // Props
   export let name: string;
-  export let tierBonus: number;
-  export let upgradeBonus: number
+  export let tierBonus = writable(0);
+  export let upgradeBonus = writable(0);
   export let currencyProduced = money;
   export let currencyRequired = money;
   export let buildings = writable(0);
@@ -15,16 +15,18 @@
   export let costMultiplier: number = 5
   export let costPerBuildingSum: number = 1;
   export let tickSpeed: number = 1000;
-  export let buildingProduction: number = 1;
+  export let buildingProduces: number = 1;
   export let formatProduction = usdFormat;
 
   // Reactive Declarations
   $: cost = ($buildingsBought + costPerBuildingSum) * costMultiplier;
   $: cantBuy = cost > $currencyRequired;
+  $: buildingProduction = buildingProduces + Math.floor(tierBonus + $upgradeBonus);
   $: productionPerTick = $buildings * buildingProduction;
-  $: buildingProduction = 1 + Math.floor(1 * (tierBonus + upgradeBonus));
   $: usd = usdFormat(currencyProduced)
   $: formattedPerTick = formatProduction(productionPerTick)
+
+  console.log(name, buildingProduces + Math.floor(tierBonus + $upgradeBonus), $upgradeBonus)
 
   // Game Fn
   const buyBuilding = (): void => {
