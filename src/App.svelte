@@ -1,4 +1,4 @@
-<script lang='typescript'>
+<script lang='ts'>
   import {onMount} from 'svelte';
   import {money, corpse} from './stores/playerStore';
   import {
@@ -140,8 +140,8 @@
         name="Taco Truck"
         buildings={tacoTrucksOwned}
         buildingsBought={tacoTrucksBought}
-        buildingProduction={3}
-        costMultiplier={22.5}
+        buildingProduction="3"
+        costMultiplier="22.5"
         tierBonus={firstRowBonus}
       />
 
@@ -149,9 +149,9 @@
         name="Burger Shack"
         buildings={burgerShacksOwned}
         buildingsBought={burgerShacksBought}
-        buildingProduction={17}
-        costMultiplier={25}
-        costPerBuildingSum={2}
+        buildingProduction="17"
+        costMultiplier="25"
+        costPerBuildingSum="2"
         tierBonus={firstRowBonus}
       />
     </div>
@@ -162,8 +162,8 @@
         buildings={mortuariesOwned}
         buildingsBought={mortuariesBought}
         currencyProduced={corpse}
-        costMultiplier={50}
-        tickSpeed={15000}
+        costMultiplier="50"
+        tickSpeed="15000"
         formatProduction="{(amount) => `${amount} ${plural('corpse', amount)}`}"
         tierBonus={secondRowBonus}
       />
@@ -173,8 +173,8 @@
         buildings={tacoFranchiseOwned}
         buildingsBought={tacoFranchiseBought}
         currencyProduced={tacoTrucksOwned}
-        costMultiplier={1000}
-        costPerBuildingSum={5}
+        costMultiplier="1000"
+        costPerBuildingSum="5"
         formatProduction="{(amount) => `${amount} ${plural('taco truck', amount)}`}"
         tierBonus={secondRowBonus}
       />
@@ -185,14 +185,14 @@
         name="Condiment Supplier"
         numberOfUpgradeBought={firstRowUpgrades}
         description="Now you don't need to make the 'Mayo' yourself!"
-        initialCost={100}
+        initialCost="100"
       />
 
       <Upgrade
         name="Hot Dog Buns"
         numberOfUpgradeBought={hotDogBunsBought}
         description="No more forcing customers to hold the dog in their hands!"
-        initialCost={15}
+        initialCost="15"
       />
     </div>
   </header>

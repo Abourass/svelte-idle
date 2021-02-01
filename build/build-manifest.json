@@ -133,7 +133,7 @@
       ]
     },
     "dist/App.svelte.js": {
-      "bytes": 12092,
+      "bytes": 12114,
       "imports": [
         {
           "path": "dist/App.svelte.css",
@@ -246,13 +246,13 @@
           "bytesInOutput": 1586
         },
         "dist/App.svelte.js": {
-          "bytesInOutput": 3893
+          "bytesInOutput": 3917
         },
         "dist/index.js": {
           "bytesInOutput": 64
         }
       },
-      "bytes": 12887
+      "bytes": 12911
     },
     "../~~bundle~~/dist/index.css": {
       "imports": [],

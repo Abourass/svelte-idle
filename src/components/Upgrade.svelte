@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   // import declarations
   import {money} from '../stores/playerStore';
   import usdFormat from '../modules/formatter';
@@ -6,8 +6,8 @@
   // props declarations
   export let name: string;
   export let amountBought;
+  export let initialCost: number;
   export let description: string;
-  export let initialCost;
   export let formatProduction = usdFormat;
 
   // reactive declarations
