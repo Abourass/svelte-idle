@@ -12,15 +12,15 @@
       "bytes": 1372,
       "imports": []
     },
-    "_snowpack/pkg/common/index-ecc57100.js": {
-      "bytes": 9504,
+    "_snowpack/pkg/common/index-66263b42.js": {
+      "bytes": 9372,
       "imports": []
     },
     "_snowpack/pkg/svelte/internal.js": {
-      "bytes": 458,
+      "bytes": 439,
       "imports": [
         {
-          "path": "_snowpack/pkg/common/index-ecc57100.js",
+          "path": "_snowpack/pkg/common/index-66263b42.js",
           "kind": "import-statement"
         }
       ]
@@ -29,7 +29,7 @@
       "bytes": 59,
       "imports": [
         {
-          "path": "_snowpack/pkg/common/index-ecc57100.js",
+          "path": "_snowpack/pkg/common/index-66263b42.js",
           "kind": "import-statement"
         }
       ]
@@ -38,7 +38,7 @@
       "bytes": 1785,
       "imports": [
         {
-          "path": "_snowpack/pkg/common/index-ecc57100.js",
+          "path": "_snowpack/pkg/common/index-66263b42.js",
           "kind": "import-statement"
         }
       ]
@@ -53,7 +53,7 @@
       ]
     },
     "dist/stores/buildingStore.js": {
-      "bytes": 264,
+      "bytes": 521,
       "imports": [
         {
           "path": "_snowpack/pkg/svelte/store.js",
@@ -70,7 +70,7 @@
       "imports": []
     },
     "dist/components/Building.svelte.js": {
-      "bytes": 7129,
+      "bytes": 8842,
       "imports": [
         {
           "path": "dist/components/Building.svelte.css",
@@ -91,11 +91,15 @@
         {
           "path": "dist/modules/formatter.js",
           "kind": "import-statement"
+        },
+        {
+          "path": "_snowpack/pkg/svelte/store.js",
+          "kind": "import-statement"
         }
       ]
     },
     "dist/App.svelte.js": {
-      "bytes": 8256,
+      "bytes": 7584,
       "imports": [
         {
           "path": "dist/App.svelte.css",
@@ -163,8 +167,8 @@
         "dist/App.svelte.css": {
           "bytesInOutput": 0
         },
-        "_snowpack/pkg/common/index-ecc57100.js": {
-          "bytesInOutput": 3378
+        "_snowpack/pkg/common/index-66263b42.js": {
+          "bytesInOutput": 3320
         },
         "_snowpack/pkg/svelte/internal.js": {
           "bytesInOutput": 0
@@ -173,13 +177,13 @@
           "bytesInOutput": 0
         },
         "_snowpack/pkg/svelte/store.js": {
-          "bytesInOutput": 419
+          "bytesInOutput": 426
         },
         "dist/stores/playerStore.js": {
-          "bytesInOutput": 28
+          "bytesInOutput": 29
         },
         "dist/stores/buildingStore.js": {
-          "bytesInOutput": 44
+          "bytesInOutput": 84
         },
         "dist/components/Building.svelte.css": {
           "bytesInOutput": 0
@@ -188,16 +192,16 @@
           "bytesInOutput": 120
         },
         "dist/components/Building.svelte.js": {
-          "bytesInOutput": 2386
+          "bytesInOutput": 2872
         },
         "dist/App.svelte.js": {
-          "bytesInOutput": 2802
+          "bytesInOutput": 2668
         },
         "dist/index.js": {
           "bytesInOutput": 64
         }
       },
-      "bytes": 9503
+      "bytes": 9845
     },
     "../~~bundle~~/dist/index.css": {
       "imports": [],

@@ -1,7 +1,18 @@
 <script lang='typescript'>
   import { onMount } from 'svelte';
   import {money, corpse} from './stores/playerStore';
-  import {hotDogStands, tacoTrucks, burgerShacks, mortuaries, tacoFranchise} from './stores/buildingStore';
+  import {
+    hotDogStandsOwned,
+    hotDogStandsBought,
+    tacoTrucksOwned,
+    tacoTrucksBought,
+    burgerShacksOwned,
+    burgerShacksBought,
+    mortuariesOwned,
+    mortuariesBought,
+    tacoFranchiseOwned,
+    tacoFranchiseBought
+  } from './stores/buildingStore';
   import Building from './components/Building.svelte'
   import usdFormat, {plural} from './modules/formatter';
 
@@ -98,7 +109,7 @@
 
 <div class="App">
   <header class="App-header">
-    <p>Page has been open for <code>{secondsGoneBy}</code> seconds.</p>
+    <p>Page has been open for <code>{secondsGoneBy}</code> seconds</p>
     <p>You currently have: {usdFormat($money)}</p>
     {#if $corpse > 0}
       <p>You currently have: {$corpse} {plural('corpse', $corpse)}</p>
@@ -109,29 +120,33 @@
 
       <Building
         name="Hot Dog Stand"
-        buildings={hotDogStands}
+        buildings={hotDogStandsOwned}
+        buildingsBought={hotDogStandsBought}
       />
 
       <Building
         name="Taco Truck"
-        buildings={tacoTrucks}
-        buildingProduction="2"
-        costMultiplier="10"
-      />
+        buildings={tacoTrucksOwned}
+        buildingsBought={tacoTrucksBought}
+        buildingProduction="3"
+        costMultiplier="22.5"
+        />
 
       <Building
         name="Burger Shack"
-        buildings={burgerShacks}
-        buildingProduction="4"
-        costMultiplier="20"
+        buildings={burgerShacksOwned}
+        buildingsBought={burgerShacksBought}
+        buildingProduction="17"
+        costMultiplier="25"
+        costPerBuildingSum="2"
       />
     </div>
 
-    {#if $money > 1000}
       <div class="container">
         <Building
           name="Mortuary"
-          buildings={mortuaries}
+          buildings={mortuariesOwned}
+          buildingsBought={mortuariesBought}
           currencyProduced={corpse}
           costMultiplier="50"
           tickSpeed="15000"
@@ -140,13 +155,13 @@
 
         <Building
           name="Taco Franchise"
-          buildings={tacoFranchise}
-          currencyProduced={tacoTrucks}
-          costMultiplier="100"
+          buildings={tacoFranchiseOwned}
+          buildingsBought={tacoFranchiseBought}
+          currencyProduced={tacoTrucksOwned}
+          costMultiplier="1000"
           costPerBuildingSum="5"
           formatProduction="{(amount) => `${amount} ${plural('taco truck', amount)}`}"
         />
       </div>
-    {/if}
   </header>
 </div>
