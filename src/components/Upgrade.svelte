@@ -1,30 +1,25 @@
-// https://www.julienrouse.com/blog/tutorial-for-idle-game-svelte-part3/
-
-
 <script>
   // import declarations
-  import { money } from './store.js';
-  import { currencyToString } from './utils.js'
+  import {money} from '../stores/playerStore';
+  import usdFormat from '../modules/formatter';
 
   // props declarations
-  export let name;
-  export let numberOfUpgradeBought;
+  export let name: string;
+  export let amountBought;
+  export let description: string;
+  export let initialCost;
+  export let formatProduction = usdFormat;
 
   // reactive declarations
   $: cantBuy = cost > $money;
-  $: cost = ($numberOfUpgradeBought + 1) * 5;
+  $: cost = initialCost * Math.pow(100, $amountBought);
 
   // function declarations
 
-  // update the value of `currencyProduced` to the store, adding `n` to it.
-  function updateMoney(n){
-    money.update(m => m + n);
-  }
-
   // update the values of `currencyProduced` and `numberBuildings`
   function updateNumbers(){
-    updateMoney(-cost);
-    numberOfUpgradeBought.update(n => n + 1);
+    money.update(money => money - cost);
+    amountBought.update(n => n + 1);
   }
 </script>
 
@@ -40,10 +35,18 @@
     color: #DDD;
     cursor: default;
   }
+
+  .italic {
+    font-style: italic;
+  }
 </style>
 
-<button on:click={updateNumbers} class:cantbuy={cantBuy} disabled={cantBuy}>
-  <h3>{name}</h3>
-  <p>costs {cost}$.</p>
-  <p>Owned:{$numberOfUpgradeBought}</p>
-</button>
+<div class="btn-wrapper">
+<button on:click={updateNumbers} class="{cantBuy ? 'btn cantBuy' : 'btn'}" disabled="{cantBuy}"></button>
+  <div class="button-flag">
+    <h3>{name}</h3>
+    <p>Costs {formatProduction(cost)}.</p>
+    <p>Owned:{$amountBought}</p>
+    <small class="italic">{description}</small>
+  </div>
+</div>

@@ -1,17 +1,19 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
+  import {onMount} from 'svelte';
   import {money} from '../stores/playerStore'
   import usdFormat from '../modules/formatter';
   import {writable} from 'svelte/store';
 
   // Props
   export let name: string;
+  export let tierBonus: number;
+  export let upgradeBonus: number
+  export let currencyProduced = money;
+  export let currencyRequired = money;
   export let buildings = writable(0);
   export let buildingsBought = writable(0);
   export let costMultiplier: number = 5
   export let costPerBuildingSum: number = 1;
-  export let currencyProduced = money;
-  export let currencyRequired = money;
   export let tickSpeed: number = 1000;
   export let buildingProduction: number = 1;
   export let formatProduction = usdFormat;
@@ -20,6 +22,7 @@
   $: cost = ($buildingsBought + costPerBuildingSum) * costMultiplier;
   $: cantBuy = cost > $currencyRequired;
   $: productionPerTick = $buildings * buildingProduction;
+  $: buildingProduction = 1 + Math.floor(1 * (tierBonus + upgradeBonus));
   $: usd = usdFormat(currencyProduced)
   $: formattedPerTick = formatProduction(productionPerTick)
 
@@ -111,7 +114,7 @@
 
 
 <div class="btn-wrapper">
-  <button on:click={buyBuilding} disabled={cantBuy} class="{cantBuy ? 'btn cantBuy' : 'btn'}">Buy {name}</button>
+  <button on:click={buyBuilding} class="{cantBuy ? 'btn cantBuy' : 'btn'}" disabled={cantBuy} >Buy {name}</button>
   <div class="button-flag">
     <h3>{name}</h3>
     <p>{$buildings} {($buildings > 1) ? 'buildings' : 'building'} ({$buildingsBought} bought), next one cost {usdFormat(cost)}</p>

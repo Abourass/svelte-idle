@@ -9,6 +9,4 @@ export const plural = (unit: string, amount: number) => {
   return unit;
 }
 
-
-
 export default usdFormat;
